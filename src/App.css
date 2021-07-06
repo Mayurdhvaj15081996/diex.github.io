@@ -13,3 +13,20 @@
   color: red;
   font-size: larger;
 }
+.SignUp{
+  display: flex;
+}
+.Image_Section{
+  flex: 1;
+  border: black;
+}
+.g-signin2{
+  flex: 2;
+  flex-grow: 3;
+  padding-top: 270px;
+  padding-left: 500px;
+}
+.ForBlank{
+  flex: 3;
+  flex-grow: 1;
+}

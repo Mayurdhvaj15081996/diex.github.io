@@ -2,14 +2,19 @@ import React from 'react';
 import forMainPageImage from './forMainPage.png';
 
 
-export default function SignUp() {
+export default function Login() {
     return (
         <div className="SignUp">
-            <h1> <marquee>Coming Soon</marquee> </h1>
+            
             <div className="Image_Section">
-                <img src={forMainPageImage} width="600" height="500" className="Logo"></img> <br></br>
+            <img src={forMainPageImage} width="600" height="500" className="Logo"></img> <br></br>
             </div> 
-            <div className="g-signin2" data-onsuccess={onSuccess}></div>
+            <div className = "Right">
+                <div className="g-signin2" data-onsuccess={onSuccess}></div>
+            </div>
+            <div className="ForBlank">
+
+            </div>
         </div>
     );
 }
