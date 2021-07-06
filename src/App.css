@@ -15,10 +15,12 @@
 }
 .SignUp{
   display: flex;
+  flex-wrap: wrap;
 }
 .Image_Section{
   flex: 1;
   border: black;
+  padding-top: 70px;
 }
 .g-signin2{
   flex: 2;
