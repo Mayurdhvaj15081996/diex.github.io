@@ -1,14 +1,15 @@
 import React from 'react';
 import './App.css';
 import Header from './Header';
-import Welcome from './SignUp'
+import LogIn from './Login';
+import Welcome from './FacultyPanel'
 import Footer from './Footer';
 import Image from './forMainPage.png';
-import { BrowserRouter, Route, Router, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 
 class App extends React.Component {
-
+/* Intilizing Google Script */
   insertGapiScript() {
     const script = document.createElement('script')
     script.src = 'https://apis.google.com/js/platform.js'
@@ -17,17 +18,25 @@ class App extends React.Component {
     }
     document.body.appendChild(script)
   }
+  /*Intilizing google API*/
   initializeGoogleSignIn() {
     window.gapi.load('auth2', () => {
       window.gapi.auth2.init({
+        /*Here I am adding my client ID*/
         clien_id: "305658601639-p6k7fuhv4npnod01c4rek35da7nm8l8v.apps.googleusercontent.com",
         cookie_policy: "none",
         fetch_basic_profile: "true"
       }).then(() => {
-        const isSignedIn = window.gapi.auth2.getAuthInstance().isSignedIn.get()
-        this.setState({ isSignedIn })
+        const authInstance = window.gapi.auth2.getAuthInstance()
+        const isSignedIn = authInstance.isSignedIn.get()
+        this.state = {
+          isSignedIn: false
+        }
+        authInstance.isSignedIn.listen(isSignedIn => {
+          this.setState({ isSignedIn: true })
+        })
         if (isSignedIn) {
-
+          <Welcome />
         }
       })
       console.log("Api Inited")
@@ -56,21 +65,11 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <Header />
-        <div className="Main_Component">
-          <div className="Image_Section">
-            <img src={Image} width="600" height="500" className="Logo"></img> <br></br>
-          </div>
-          <div className="Notice_Login">
-            Login with your Parul University Google Email ONLY. <br />Sign out of any other google account on your Chrome browser <br />before clicking on the Sign in with Google button.<br /><br/>
-            <div id="loginButton" className="GButton" data-onsuccess="onSignIn"></div>
-          </div>  
-          <div className="ForBlank">
-            <div className="Button">
-            </div>
-          </div>
-        </div>
-        <Footer/>
+        <Switch>
+          <Route exact path="/" component={LogIn} />
+          <Route path="/facultyLogin" component={Welcome} />
+        </Switch>
+        <Footer />
       </div>
     );
   }

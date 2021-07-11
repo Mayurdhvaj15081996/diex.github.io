@@ -7,7 +7,7 @@ export default function Welcome(props) {
         <div>
             <Header/>
             <div className="Welcome">
-                Welcome!!
+                Welcome!! Faculty
             </div>
             <Footer/>
         </div>
