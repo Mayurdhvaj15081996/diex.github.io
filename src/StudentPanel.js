@@ -1,10 +1,10 @@
 import React from 'react';
 
-export default function Welcome(props) {
+export default function WelcomeStudent(props) {
     return (
         <div>
             <div className="Welcome">
-                Welcome!! Faculty
+                Welcome!! Student
             </div>
         </div>
     )

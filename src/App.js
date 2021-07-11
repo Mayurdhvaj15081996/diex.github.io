@@ -1,10 +1,10 @@
 import React from 'react';
 import './App.css';
 import Header from './Header';
-import LogIn from './Login';
+import Login from './Login'
 import Welcome from './FacultyPanel'
-import Footer from './Footer';
-import Image from './forMainPage.png';
+import WelcomeStudent from './StudentPanel'
+
 import { Route, Switch } from 'react-router-dom';
 
 
@@ -65,11 +65,12 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
+        <Header/>
         <Switch>
-          <Route exact path="/" component={LogIn} />
-          <Route path="/facultyLogin" component={Welcome} />
+          <Route exact path="/" component={Login} />
+          <Route path="/facultyPanel" component={Welcome} />
+          <Route path="/studentPanel" component={WelcomeStudent} />
         </Switch>
-        <Footer />
       </div>
     );
   }

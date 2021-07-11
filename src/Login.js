@@ -1,4 +1,6 @@
 import React from 'react';
+import Image from './forMainPage.png';
+import Footer from './Footer';
 
 export default function LogIn(){
         return(
@@ -16,6 +18,7 @@ export default function LogIn(){
             </div>
           </div>
         </div>
+        <Footer/>
             </div>
         );
 }
